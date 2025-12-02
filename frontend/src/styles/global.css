@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cosmic-50: #f0f5ff;
+    --color-cosmic-100: #e5edff;
+    --color-cosmic-200: #cddbfe;
+    --color-cosmic-300: #b4c6fc;
+    --color-cosmic-400: #8da2fb;
+    --color-cosmic-500: #6875f5;
+    --color-cosmic-600: #5850ec;
+    --color-cosmic-700: #5145cd;
+    --color-cosmic-800: #42389d;
+    --color-cosmic-900: #362f78;
+
+    --color-nebula-pink: #ff6bcb;
+    --color-nebula-purple: #8a2be2;
+    --color-nebula-blue: #4361ee;
+    --color-nebula-cyan: #00d4ff;
+    --color-nebula-dark: #0f172a;
+  }
+
+  body {
+    @apply bg-cosmic-gradient text-gray-100;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-purple-600 to-pink-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gradient-to-b from-purple-500 to-pink-500;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-2xl;
+  }
+
+  .cosmic-gradient {
+    background: radial-gradient(ellipse at top, #0f172a 0%, #1e1b4b 100%);
+  }
+
+  .nebula-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
